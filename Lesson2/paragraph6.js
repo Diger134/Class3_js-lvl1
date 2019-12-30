@@ -1,9 +1,9 @@
 'use strict';
 //задание №2 пункт 6
-let quesAmountMoney = String(prompt('Какую сумму вы хотите положить на счет в банке?'));
-    if (quesAmountMoney == 'null') {
+let quesAmountMoney = prompt('Какую сумму вы хотите положить на счет в банке?');
+    if (quesAmountMoney == null) {
         alert('Операция отменена');
-    } else if (isNaN(Number(quesAmountMoney))) {
+    } else if (isNaN(quesAmountMoney)) {
         alert('Сумма введена некоректно')
     } else if (quesAmountMoney == '') {
         alert('Вы не ввели сумму');
@@ -12,18 +12,16 @@ let quesAmountMoney = String(prompt('Какую сумму вы хотите п�
    * Функция возвращает значение последнего символа в строке
    */
   function getLastNum() {
-    let lastNum = quesAmountMoney.charAt(quesAmountMoney.length-1);
-    return lastNum;
+    return quesAmountMoney.charAt(quesAmountMoney.length-1);
   }
   /**
    * Функция возвращает значение двух последних символов в строке
    */
   function getLast2Num() {
-    let last2Num = quesAmountMoney.slice(-2);
-    return last2Num;
+   return quesAmountMoney.slice(-2);
   }
   function showAmountMoneyinBank() {
-    if (getLast2Num() >= 10 && getLast2Num() <= 20) {
+    if (getLast2Num() >= 10 && getLast2Num() < 20) {
         alert(`Ваша сумма в ${quesAmountMoney} рублей успешно зачислена.`)
     } else {
     let rubles;

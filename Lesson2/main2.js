@@ -1,5 +1,5 @@
 'use strict';
-//задание №2 пункт 2
+//задание №2 пункт 1
 let a = 1, b = 1, c, d;
 c = ++a; 
 alert(c);      // Ответ 2  Префиксная форма инкремента. 
@@ -54,8 +54,7 @@ if (num1 >= 0 && num2 >= 0) {
  * @returns {Number} Сумма
  */
 function getSum(a,b) {
- let sum = Number(a) + Number(b);
- return sum;
+ return Number(a) + Number(b);
 }
 /**
  * Разность двух чисел
@@ -64,8 +63,7 @@ function getSum(a,b) {
  * @returns {Number} Разность
  */
 function getSubtraction(a,b) {
- let sub = Number(a) - Number(b);
- return sub;
+ return Number(a) - Number(b);
 }
 /**
  * Произведение двух чисел
@@ -74,8 +72,8 @@ function getSubtraction(a,b) {
  * @returns {Number} Произведение
  */
 function getMultiplication(a,b) {
- let mult = Number(a) * Number(b);
- return mult;
+ return Number(a) * Number(b);
+ 
 }
 /**
  * Деление двух чисел
@@ -84,8 +82,7 @@ function getMultiplication(a,b) {
  * @returns {Number} Частное
  */
 function getDivision(a,b) {
- let div = Number(a) / Number(b);
- return div;
+ return Number(a) / Number(b);
 }
 //задание №2 пункт 5
 /**
@@ -97,20 +94,15 @@ function getDivision(a,b) {
  * @returns {Number}
  */
  function mathOperation(arg1,arg2,operation) {
- let result;
  switch (operation) {
   case 'сложение':
-    result = getSum(arg1,arg2);
-    return result;
+    return getSum(arg1,arg2);
   case 'вычитание':
-    result = getSubtraction(arg1,arg2);
-    return result;
+    return getSubtraction(arg1,arg2);
     case 'умножение':
-    result = getMultiplication(arg1,arg2);
-    return result;
+      return getMultiplication(arg1,arg2);
     case 'деление':
-    result = getDivision(arg1,arg2);
-    return result;
+      return getDivision(arg1,arg2);
     default:
      throw new Error('Не верное арифметическое действие: ' + operation);
   }
