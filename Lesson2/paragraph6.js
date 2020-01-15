@@ -24,7 +24,7 @@ let quesAmountMoney = prompt('Какую сумму вы хотите полож
     if (getLast2Num() >= 10 && getLast2Num() < 20) {
         alert(`Ваша сумма в ${quesAmountMoney} рублей успешно зачислена.`)
     } else {
-    let rubles;
+    let rubles = 0;
     switch (getLastNum()){
       case '1':
         rubles = 'рубль'

@@ -80,7 +80,7 @@ const products = [{
         price: 78,
     },
 ];
-let productWithPhoto = products.filter((withphotos) => withphotos.photos && withphotos.photos.length);
+let productWithPhoto = products.filter((product) => product.photos && product.photos.length);
 console.log(productWithPhoto);
 products.sort((a, b) => a.price - b.price);
 console.log(products);
