@@ -1,0 +1,112 @@
+@keyframes anime_open
+    0%
+      opacity: 0  
+      top: -600px
+    100%
+      opacity: 1
+      top: 0     
+@keyframes anime_close
+    0%
+      opacity: 1  
+      top: 0
+    100%
+      opacity: 0
+      top: -600px    
+html
+    min-width: 450px
+.open_button
+    display: block
+    margin: 300px auto
+    width: 200px
+    height: 50px
+    border: 3px solid #f00
+    background-color: #ff0
+    font-size: 30px
+    cursor: pointer
+    &:active
+        border: none
+.modal_wrapper
+    left: 0
+    top: 0
+    position: fixed
+    width: 100%
+    height: 100%
+    display: none
+    padding-top: 50px
+    background: rgba(0, 0, 0, 0.4)
+    .modal_container
+        position: relative
+        margin: 0 auto
+        width: 400px
+        min-height: 600px
+        border: 2px solid #000
+        background-color: #0ff
+        animation-name: anime_open
+        animation-duration: 1s
+        .close_button
+            font-size: 30px
+            margin-left: 93%
+            cursor: pointer
+            &:hover
+                color: #fff
+        .modal_content
+            text-align: center
+            margin: 30% 5% 0 5%
+            .modal_title
+                font-size: 60px
+    .modal_anime_close
+        animation-name: anime_close
+        animation-duration: 1s    
+  
+.wrapper 
+    display: grid
+    grid-template-columns: repeat(3, 150px)
+    grid-gap: 20px
+    .product
+        width: 150px
+        img
+            display: block
+        button
+            margin-top: 15px
+            display: block
+        .desc
+          text-align: center
+          padding: 5px
+          word-wrap: break-word
+.chess_board
+    margin: 200px auto
+    display: flex
+    flex-wrap: wrap
+    flex-direction: row
+    max-width: 450px
+    .chess_empty_cell
+        box-sizing: border-box
+        width: 50px
+        height: 50px
+    .chess_number_cell
+        box-sizing: border-box
+        width: 50px
+        height: 50px
+        font-weight: 700
+        font-size: 30px
+        text-align: center
+        padding-top: 10px
+    .chess_letter_cell
+        box-sizing: border-box
+        width: 50px
+        height: 50px
+        font-weight: 700
+        font-size: 30px
+        text-align: center
+        padding-top: 10px
+    .chess_black_cell
+        box-sizing: border-box
+        width: 50px
+        height: 50px
+        background-color: #000
+    .chess_white_cell
+        box-sizing: border-box
+        border: 1px solid #000
+        width: 50px
+        height: 50px
+        background-color: #fff   
