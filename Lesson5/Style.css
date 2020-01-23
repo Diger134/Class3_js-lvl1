@@ -1,0 +1,200 @@
+@-webkit-keyframes anime_open {
+  0% {
+    opacity: 0;
+    top: -600px;
+  }
+  100% {
+    opacity: 1;
+    top: 0;
+  }
+}
+
+@keyframes anime_open {
+  0% {
+    opacity: 0;
+    top: -600px;
+  }
+  100% {
+    opacity: 1;
+    top: 0;
+  }
+}
+
+@-webkit-keyframes anime_close {
+  0% {
+    opacity: 1;
+    top: 0;
+  }
+  100% {
+    opacity: 0;
+    top: -600px;
+  }
+}
+
+@keyframes anime_close {
+  0% {
+    opacity: 1;
+    top: 0;
+  }
+  100% {
+    opacity: 0;
+    top: -600px;
+  }
+}
+
+html {
+  min-width: 450px;
+}
+
+.open_button {
+  display: block;
+  margin: 300px auto;
+  width: 200px;
+  height: 50px;
+  border: 3px solid #f00;
+  background-color: #ff0;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.open_button:active {
+  border: none;
+}
+
+.modal_wrapper {
+  left: 0;
+  top: 0;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  display: none;
+  padding-top: 50px;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.modal_wrapper .modal_container {
+  position: relative;
+  margin: 0 auto;
+  width: 400px;
+  min-height: 600px;
+  border: 2px solid #000;
+  background-color: #0ff;
+  -webkit-animation-name: anime_open;
+          animation-name: anime_open;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+}
+
+.modal_wrapper .modal_container .close_button {
+  font-size: 30px;
+  margin-left: 93%;
+  cursor: pointer;
+}
+
+.modal_wrapper .modal_container .close_button:hover {
+  color: #fff;
+}
+
+.modal_wrapper .modal_container .modal_content {
+  text-align: center;
+  margin: 30% 5% 0 5%;
+}
+
+.modal_wrapper .modal_container .modal_content .modal_title {
+  font-size: 60px;
+}
+
+.modal_wrapper .modal_anime_close {
+  -webkit-animation-name: anime_close;
+          animation-name: anime_close;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+}
+
+.wrapper {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (150px)[3];
+      grid-template-columns: repeat(3, 150px);
+  grid-gap: 20px;
+}
+
+.wrapper .product {
+  width: 150px;
+}
+
+.wrapper .product img {
+  display: block;
+}
+
+.wrapper .product button {
+  margin-top: 15px;
+  display: block;
+}
+
+.wrapper .product .desc {
+  text-align: center;
+  padding: 5px;
+  word-wrap: break-word;
+}
+
+.chess_board {
+  margin: 200px auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  max-width: 450px;
+}
+
+.chess_board .chess_empty_cell {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 50px;
+  height: 50px;
+}
+
+.chess_board .chess_number_cell {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 50px;
+  height: 50px;
+  font-weight: 700;
+  font-size: 30px;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.chess_board .chess_letter_cell {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 50px;
+  height: 50px;
+  font-weight: 700;
+  font-size: 30px;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.chess_board .chess_black_cell {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 50px;
+  height: 50px;
+  background-color: #000;
+}
+
+.chess_board .chess_white_cell {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 1px solid #000;
+  width: 50px;
+  height: 50px;
+  background-color: #fff;
+}
+/*# sourceMappingURL=Style.css.map */
