@@ -1,0 +1,106 @@
+
+@keyframes animate_prev_back {
+  from {
+    margin-left: 0px;
+  }
+  to {
+    margin-left: -720px;
+  }
+}
+
+@keyframes animate_back {
+  from {
+    margin-left: 720px;
+  }
+  to {
+    margin-left: 0px;
+  }
+}
+
+@keyframes animate_next_forward {
+  from {
+    margin-left: 0px;
+  }
+  to {
+    margin-left: 720px;
+  }
+}
+
+@keyframes animate_forward {
+  from {
+    margin-left: -720px;
+  }
+  to {
+    margin-left: 0px;
+  }
+}
+.animate_back {
+  animation-name: animate_back;
+  animation-duration: .7s;
+}
+
+.animate_prev_back {
+  animation-name: animate_prev_back;
+  animation-duration: .7s;
+}
+
+.animate_forward {
+  animation-name: animate_forward;
+  animation-duration: .7s;
+}
+
+.animate_next_forward {
+  animation-name: animate_next_forward;
+  animation-duration: .7s;
+}
+
+.slider {
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.slider-item {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+}
+
+.hidden-slide {
+  visibility: hidden;
+}
+
+.fas.fa-spinner.fa-spin {
+  font-size: 50px;
+  color: #bbbbbb;
+  position: absolute;
+  left: calc(50% - 25px);
+  top: calc(50% - 25px);
+}
+
+.slider-item img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.slider-leftArrow, .slider-rightArrow {
+  position: absolute;
+  top: 47%;
+  z-index: 3;
+  color: #bbbbbb;
+  cursor: pointer;
+  font-size: 50px;
+}
+
+.slider-leftArrow {
+  left: 5%;
+}
+
+.slider-rightArrow {
+  right: 5%;
+}

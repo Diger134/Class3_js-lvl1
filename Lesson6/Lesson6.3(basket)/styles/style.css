@@ -1,0 +1,18 @@
+.bucketPanel {
+    width: 400px;
+    padding: 10px;
+}
+
+.productRemoveBtn:hover {
+    cursor: pointer;
+}
+.hiddendisplay {
+    display: none;
+}
+
+.showeddisplay {
+    display: block;
+}
+.clear_product:hover {
+    cursor: pointer;
+}
