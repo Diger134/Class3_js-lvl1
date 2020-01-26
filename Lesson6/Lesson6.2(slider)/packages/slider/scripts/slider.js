@@ -21,6 +21,7 @@ slider.insertAdjacentElement("beforeend", rightArrow);
 window.addEventListener('load', function () {
     leftArrow.addEventListener('click', function () {
         images.setNextLeftImage();
+
     });
 
     rightArrow.addEventListener('click', function () {
@@ -62,7 +63,7 @@ setSizes(slider);
 let images = {
     /* {int} Номер текущего изображения */
     currentIdx: 0,
-    
+
     /* {int} Номер предыдущего изображения */
     prevIdx: 0,
 
@@ -71,7 +72,7 @@ let images = {
 
     /* {HTMLDivElement[]} slides элементы слайдов */
     slides: [],
-    
+
     /** Получаем все слайды и показываем первый слайд. */
     init() {
         this.slides = document.querySelectorAll('.slider-item');
@@ -88,8 +89,8 @@ let images = {
     hideVisibleImages() {
         this.slides.forEach(function (slide) {
             setTimeout(() => {
-                slide.classList.add('hidden-slide');    
-                }, 700);
+                slide.classList.add('hidden-slide');
+            }, 700);
         });
     },
 
@@ -100,7 +101,7 @@ let images = {
 
     /**  удаления класса проигрывания анимации для элемента */
     removeAnimateClassAfter1s(imgIdx, animateClass) {
-            this.slides[imgIdx].classList.remove(animateClass);
+        this.slides[imgIdx].classList.remove(animateClass);
     },
 
     /** Переключиться на предыдущее изображение. */
@@ -116,13 +117,14 @@ let images = {
         this.showImageWithCurrentIdx();
         this.addAnimateCLass(this.currentIdx, 'animate_forward');
         this.addAnimateCLass(this.nextIdx, 'animate_next_forward');
-
-         /** удаление классов проигрывания анимации после завершения */
+        this.ToChangeZindexArrows("0");
+        /** удаление классов проигрывания анимации после завершения */
         setTimeout(() => {
             this.removeAnimateClassAfter1s(this.currentIdx, 'animate_forward');
-            this.removeAnimateClassAfter1s(this.nextIdx, 'animate_next_forward'); 
-        }, 700);  
-         /** Делаем видимым текущий слайд с задержкой в 701мс */
+            this.removeAnimateClassAfter1s(this.nextIdx, 'animate_next_forward');
+            this.ToChangeZindexArrows("4");
+        }, 700);
+        /** Делаем видимым текущий слайд с задержкой в 701мс */
         setTimeout(() => {
             this.showImageWithCurrentIdx()
         }, 701);
@@ -130,7 +132,7 @@ let images = {
 
     /** Переключиться на следующее изображение. */
     setNextRightImage() {
-        this.hideVisibleImages();        
+        this.hideVisibleImages();
         if (this.currentIdx == this.slides.length - 1) {
             this.currentIdx = 0;
             this.prevIdx = this.slides.length - 1;
@@ -138,21 +140,28 @@ let images = {
             this.currentIdx++;
             this.prevIdx = this.currentIdx - 1;
         }
-        
-        this.showImageWithCurrentIdx() 
+
+        this.showImageWithCurrentIdx()
         this.addAnimateCLass(this.currentIdx, 'animate_back');
         this.addAnimateCLass(this.prevIdx, 'animate_prev_back');
-        
+        this.ToChangeZindexArrows("0");
+
         /** удаление классов проигрывания анимации после завершения */
         setTimeout(() => {
             this.removeAnimateClassAfter1s(this.currentIdx, 'animate_back');
-            this.removeAnimateClassAfter1s(this.prevIdx, 'animate_prev_back');  
-        }, 700);  
+            this.removeAnimateClassAfter1s(this.prevIdx, 'animate_prev_back');
+            this.ToChangeZindexArrows("4");
+        }, 700);
         /** Делаем видимым текущий слайд с задержкой в 1001мс */
         setTimeout(() => {
             this.showImageWithCurrentIdx()
         }, 701);
-        
-    },
-}
 
+    },
+    ToChangeZindexArrows(zIndex) {
+        let leftArrow = document.querySelector('.fa-chevron-circle-left');
+        let RighttArrow = document.querySelector('.fa-chevron-circle-right');
+        leftArrow.style.zIndex = zIndex;
+        RighttArrow.style.zIndex = zIndex;
+    }
+}

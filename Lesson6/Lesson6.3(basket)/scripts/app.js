@@ -1,7 +1,6 @@
 let buttonBasket = document.querySelector('.dropdown-toggle');
 let basketPanel = document.querySelector('.basketPanel');
 let basketBtns = document.querySelectorAll('.toBasketBtn');
-debugger;
 /**Открываем и закрываем модальное окно по клику мыши */
 buttonBasket.addEventListener('click', function () {
     if (basketPanel.classList.contains('hiddendisplay')) {
