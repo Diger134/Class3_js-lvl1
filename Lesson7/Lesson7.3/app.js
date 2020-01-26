@@ -272,13 +272,6 @@ class Game {
      */
     doTick() {
         this.snake.performStep();
-        if (this.board.isNextStepToWall(this.snake.body[0])) {
-            let coor = {
-                x: 1,
-                y: 1,
-            }
-            this.board.getSnakeBodyElems(coor);
-        }
         if (this.isGameLost()) {
             return;
         }
