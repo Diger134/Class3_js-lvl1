@@ -106,7 +106,7 @@ content.addEventListener('click', function (event) {
 });
 
 buttonClearList.addEventListener('click', function () {
-    ClearContent();
+    ClearTasksList();
     localStorage.clear();
 });
 
@@ -175,9 +175,3 @@ function ClearTasksList() {
     });
 }
 
-function ClearContent() {
-    const tasks = document.querySelectorAll('.todo_list-task');
-    tasks.forEach(task => {
-        task.remove();
-    });
-}
