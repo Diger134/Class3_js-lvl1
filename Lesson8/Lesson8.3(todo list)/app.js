@@ -41,7 +41,10 @@ editInput.addEventListener('keydown', function (event) {
 
 buttonAdd.addEventListener('click', function () {
     if (input.value !== '') {
-        addTask(getValue(input));
+        addTask({
+            value: getValue(input),
+            completeStatus: false,
+        });
         renderTask();
         clearValue(input);
     }
@@ -107,8 +110,8 @@ buttonClearList.addEventListener('click', function () {
     localStorage.clear();
 });
 
-function addTask(text) {
-    tasksData.push(text);
+function addTask(task) {
+    tasksData.push(task);
 
 }
 
