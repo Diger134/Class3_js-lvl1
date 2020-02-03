@@ -1,0 +1,182 @@
+@import url("https://fonts.googleapis.com/css?family=Nunito:400,700&display=swap&subset=cyrillic-ext");
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+}
+
+.todo_list-wrapper {
+  position: relative;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 500px;
+  min-height: 800px;
+  background-color: #f0f2f5;
+  margin: 30px auto;
+  border: 1px solid #8fabd4;
+  border-radius: 10px;
+}
+
+.todo_list-wrapper .todo_list-header {
+  min-height: 70px;
+  background-color: #8fabd4;
+  border-radius: 10px 10px 0 0;
+  padding-top: 10px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.todo_list-wrapper .todo_list-header .todo_list-title {
+  width: 100%;
+  color: #fff;
+  text-align: center;
+}
+
+.todo_list-wrapper .todo_list-edit-text {
+  position: absolute;
+  display: none;
+  height: 25px;
+  width: 430px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 8px;
+  border: none;
+  border: 1px solid #8fabd4;
+  padding: 0 10px;
+  outline: none;
+  color: #8fabd4;
+  font-family: 'Nunito', sans-serif;
+  font-size: 20px;
+  z-index: 1;
+}
+
+.todo_list-wrapper .todo_list-edit-text_visible {
+  display: block;
+}
+
+.todo_list-wrapper .todo_list-input-text {
+  height: 30px;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 0 0 8px 8px;
+  border: none;
+  border-bottom: 1px solid #8fabd4;
+  display: block;
+  padding: 0 10px;
+  outline: none;
+  color: #8fabd4;
+  font-family: 'Nunito', sans-serif;
+  font-size: 20px;
+}
+
+.todo_list-wrapper .todo_list-content {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  height: 650px;
+  overflow-y: scroll;
+}
+
+.todo_list-wrapper .todo_list-content .todo_list-task {
+  border-bottom: 1px solid #8fabd4;
+  margin-left: 30px;
+  color: #8fabd4;
+  position: relative;
+}
+
+.todo_list-wrapper .todo_list-content .todo_list-task .todo_list-task-text_complete {
+  color: #21b335;
+  text-decoration: line-through;
+}
+
+.todo_list-wrapper .todo_list-content .todo_list-task .btn_edit {
+  color: #8fabd4;
+  font-weight: 900;
+  display: inline-block;
+  position: absolute;
+  right: 18px;
+  bottom: 2px;
+}
+
+.todo_list-wrapper .todo_list-content .todo_list-task .btn_edit:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.todo_list-wrapper .todo_list-content .todo_list-task .btn_remove {
+  color: #8fabd4;
+  font-weight: 900;
+  display: inline-block;
+  position: absolute;
+  right: 0px;
+  bottom: 2px;
+}
+
+.todo_list-wrapper .todo_list-content .todo_list-task .btn_remove:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.todo_list-wrapper .todo_list-content .todo_list-task p {
+  max-width: 380px;
+  margin-left: 10px;
+  color: #8fabd4;
+  display: inline-block;
+  word-wrap: break-word;
+}
+
+.todo_list-wrapper .todo_list-content .todo_list-task p:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.todo_list-wrapper .todo_list-content .todo_list-task .task-complete {
+  text-decoration: line-through;
+  color: #6baf76;
+}
+
+.todo_list-wrapper .todo_list-button-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 10px auto;
+}
+
+.todo_list-wrapper .todo_list-button-container .todo_list-button {
+  font-family: 'Nunito', sans-serif;
+  margin: 0 10px;
+  width: 100px;
+  height: 50px;
+  background-color: #8fabd4;
+  border: none;
+  border-radius: 3px;
+  color: #fff;
+  font-size: 18px;
+  outline: none;
+  -webkit-transition: -webkit-transform .3s linear;
+  transition: -webkit-transform .3s linear;
+  transition: transform .3s linear;
+  transition: transform .3s linear, -webkit-transform .3s linear;
+}
+
+.todo_list-wrapper .todo_list-button-container .todo_list-button:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  -webkit-transition: -webkit-transform .3s linear;
+  transition: -webkit-transform .3s linear;
+  transition: transform .3s linear;
+  transition: transform .3s linear, -webkit-transform .3s linear;
+  cursor: pointer;
+}
+
+.todo_list-wrapper .todo_list-button-container .todo_list-button:active {
+  border: 2px solid #f0f2f5;
+}
+/*# sourceMappingURL=style.css.map */

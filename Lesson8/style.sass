@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito:400,700&display=swap&subset=cyrillic-ext')
+*
+    margin: 0
+    padding: 0
+body
+    font-family: 'Nunito', sans-serif
+.todo_list-wrapper
+    position: relative
+    box-sizing: border-box
+    width: 500px
+    min-height: 800px
+    background-color: #f0f2f5
+    margin: 30px auto
+    border: 1px solid #8fabd4
+    border-radius: 10px
+    .todo_list-header
+        min-height: 70px
+        background-color: #8fabd4
+        border-radius: 10px 10px 0 0
+        padding-top: 10px
+        box-sizing: border-box
+        .todo_list-title
+            width: 100%
+            color: #fff
+            text-align: center
+    .todo_list-edit-text
+        position: absolute
+        display: none
+        height: 25px
+        width: 430px
+        box-sizing: border-box
+        border-radius: 8px
+        border: none
+        border: 1px solid #8fabd4
+        padding: 0 10px
+        outline: none
+        color: #8fabd4
+        font-family: 'Nunito', sans-serif
+        font-size: 20px
+        z-index: 1
+    .todo_list-edit-text_visible
+        display: block
+    .todo_list-input-text
+        height: 30px
+        width: 100%
+        box-sizing: border-box
+        border-radius: 0 0 8px 8px
+        border: none
+        border-bottom: 1px solid #8fabd4
+        display: block
+        padding: 0 10px
+        outline: none
+        color: #8fabd4
+        font-family: 'Nunito', sans-serif
+        font-size: 20px
+    .todo_list-content
+        box-sizing: border-box
+        padding: 10px
+        height: 650px
+        overflow-y: scroll
+        .todo_list-task
+            border-bottom: 1px solid #8fabd4
+            margin-left: 30px
+            color: #8fabd4
+            position: relative
+            .todo_list-task-text_complete
+                color: #21b335
+                text-decoration: line-through
+            .btn_edit
+                color: #8fabd4
+                font-weight: 900
+                display: inline-block
+                position: absolute
+                right: 18px
+                bottom: 2px
+                &:hover
+                    cursor: pointer
+                    opacity: 0.7 
+            .btn_remove
+                color: #8fabd4
+                font-weight: 900
+                display: inline-block
+                position: absolute
+                right: 0px
+                bottom: 2px
+                &:hover
+                    cursor: pointer
+                    opacity: 0.7      
+            p
+                max-width: 380px
+                margin-left: 10px
+                color: #8fabd4
+                display: inline-block
+                word-wrap: break-word
+                &:hover
+                    cursor: pointer
+                    opacity: 0.7
+            .task-complete
+                text-decoration: line-through
+                color: #6baf76
+    .todo_list-button-container
+        display: flex
+        justify-content: center
+        margin: 10px auto
+        .todo_list-button
+            font-family: 'Nunito', sans-serif
+            margin: 0 10px
+            width: 100px
+            height: 50px
+            background-color: #8fabd4
+            border: none
+            border-radius: 3px
+            color: #fff
+            font-size: 18px 
+            outline: none
+            transition: transform .3s linear
+            &:hover
+                transform: scale(1.1)
+                transition: transform .3s linear
+                cursor: pointer
+            &:active
+                border: 2px solid #f0f2f5
+
