@@ -108,6 +108,7 @@ content.addEventListener('click', function (event) {
 buttonClearList.addEventListener('click', function () {
     ClearTasksList();
     localStorage.clear();
+    tasksData = [];
 });
 
 function addTask(task) {
@@ -174,4 +175,3 @@ function ClearTasksList() {
         task.remove();
     });
 }
-
