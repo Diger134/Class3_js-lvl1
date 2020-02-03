@@ -120,7 +120,8 @@ class Game {
         this.togglePhase();
 
         this.increaseMoveByOne();
-        if (this.move == 9 && !this.hasWon()) {
+        let maxVoveCount = 9;
+        if (this.move == maxVoveCount && !this.hasWon()) {
             this.phrases.sayDrawPhrase();
         }
     }
