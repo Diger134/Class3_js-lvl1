@@ -1,1 +1,1 @@
-export const url = 'https://www.google.com/search?q=google+karta&oq=goo&aqs=chrome.1.69i57j35i39l2j0j69i65j69i60l3.5576j0j7&sourceid=chrome&ie=UTF-8'
+export const url = 'https://raw.githubusercontent.com/Diger134/Class3_js-lvl1/master/Lesson8/Lesson8.3(todo%20list)/todo-list(react)/src/tasks.json'

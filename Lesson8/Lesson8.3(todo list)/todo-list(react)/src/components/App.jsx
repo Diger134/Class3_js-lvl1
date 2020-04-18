@@ -10,7 +10,7 @@ class App extends Component {
         this.state = {
             inputText: '',
             editInputText: '',
-            tasksData: tasks,
+            tasksData: [],
             visibleEditInput: false,
             locationEditInput: 0,
             editInputIndex: 0,
@@ -23,8 +23,14 @@ class App extends Component {
     }
     
     componentDidMount = () => {
-        
-        console.log('тут должен быть запрос на сервер' + url)
+        fetch(url)
+            .then(data => data.json())
+            .then(data => {
+                this.setState({
+                    tasksData: data
+                })
+                console.log(this.state.tasksData)
+                    })
 
 
     }
