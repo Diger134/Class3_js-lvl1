@@ -47,6 +47,15 @@ buttonAdd.addEventListener('click', function () {
         });
         renderTask();
         clearValue(input);
+        localStorage.setItem('tasks', JSON.stringify(tasksData));
+    }
+    if (editInput.classList.contains('todo_list-edit-text_visible')) {
+        tasksData[tasksDataIndexbyClick].value = getValue(editInput);
+        ClearTasksList();
+        clearValue(editInput);
+        editInput.classList.remove('todo_list-edit-text_visible');
+        renderTasksList();
+        localStorage.setItem('tasks', JSON.stringify(tasksData));
     }
 });
 
@@ -101,6 +110,11 @@ content.addEventListener('click', function (event) {
                 editInput.style.top = `${event.clientY - 45}px`;
                 editInput.select();
             }
+        } else {
+            editInput.classList.remove('todo_list-edit-text_visible');
+        }
+        if (!contentTask.classList.contains('btn_edit')) {
+            editInput.classList.remove('todo_list-edit-text_visible');
         }
     }
 });
