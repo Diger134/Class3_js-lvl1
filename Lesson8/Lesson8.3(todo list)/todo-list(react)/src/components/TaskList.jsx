@@ -6,8 +6,8 @@ class TaskList extends Component {
     
     render() {
         const {tasks} = this.props;
-        const taskList = tasks.map((task, i) => 
-                <Task togleEditInput = {this.props.togleEditInput} removeTask = {this.props.removeTask} key = {shortid.generate()} task = {task} index = {i} />,
+        const taskList = tasks.map((task, i, tasks) => 
+                <Task togleEditInput = {this.props.togleEditInput} removeTask = {this.props.removeTask} key = {shortid.generate()} task = {task}  tasks = {tasks} index = {i} />,
     )
 
         return (
