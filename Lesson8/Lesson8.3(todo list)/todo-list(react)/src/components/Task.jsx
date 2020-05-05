@@ -13,7 +13,6 @@ class Task extends Component {
     render() {
         const {task} = this.props
         const {index} = this.props
-        let d = new Date()
         return (
             <li className = "todo_list-task">
                 <div>
