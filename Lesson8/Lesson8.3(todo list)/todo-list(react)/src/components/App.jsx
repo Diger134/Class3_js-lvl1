@@ -20,6 +20,7 @@ class App extends Component {
                 day: 'numeric'
             })
     }
+    this.inputValue = React.createRef();
     }
     
     componentDidMount = () => {
@@ -30,7 +31,6 @@ class App extends Component {
             })
 
         }
-
         // fetch(url)
         //     .then(data => data.json())
         //     .then(data => {
@@ -51,56 +51,48 @@ class App extends Component {
         editInputText: event.target.value
 })
 
-    clearInputValue = (event) => {
-        event.target.value = ''
-}
-
     addTaskByPressEnter = (event) => {
         if (event.key === 'Enter' && event.target.value !== '') {
-            const changedTasksData = this.state.tasksData
+            const changedTasksData = [...this.state.tasksData];
             changedTasksData.push({
                 value: this.state.inputText, 
                 completeStatus: false,
                 date: 'Добавленно: ' + this.state.date
             })
-            event.target.value = ''
+            event.target.value = '';
             this.setState({
                 tasksData: changedTasksData,
                 inputText: event.target.value
-            })
-            localStorage.setItem('tasks', JSON.stringify(this.state.tasksData))
-            console.log(this.state.tasksData)
+            }, () => localStorage.setItem('tasks', JSON.stringify(this.state.tasksData)))           
         }
     }
 
     addTaskByClickBtn = (event) => {
         if (this.state.editInputText) {
-            const changedTasksData = this.state.tasksData
-          changedTasksData[+event.target.dataset.index].value = this.state.editInputText
-          changedTasksData[event.target.dataset.index].date = 'Измененно: ' + this.state.date
-          let changedEditInputText = ''
+            const changedTasksData = [...this.state.tasksData]
+          changedTasksData[+event.target.dataset.index].value = this.state.editInputText;
+          changedTasksData[event.target.dataset.index].date = 'Измененно: ' + this.state.date;
+          let changedEditInputText = '';
           this.setState({
               tasksData: changedTasksData,
               visibleEditInput: false,
               editInputText: changedEditInputText
-          })
-          localStorage.setItem('tasks', JSON.stringify(this.state.tasksData))
+          }, () => localStorage.setItem('tasks', JSON.stringify(this.state.tasksData)))
         }
-        let changedInputText = this.state.inputText
+        let changedInputText = this.state.inputText;
         if (changedInputText !== '') {
-        const changedTasksData = this.state.tasksData
+        const changedTasksData = [...this.state.tasksData]
         changedTasksData.push({
             value: this.state.inputText, 
             completeStatus: false,
             date: 'Добавленно: ' + this.state.date
         })
-        changedInputText = ''
+        changedInputText = '';
+        this.inputValue.current.value = '';
         this.setState({
             tasksData: changedTasksData,
             inputText: changedInputText
-        })
-        localStorage.setItem('tasks', JSON.stringify(this.state.tasksData))
-        console.log(this.state.tasksData)
+        }, () => localStorage.setItem('tasks', JSON.stringify(this.state.tasksData)))
         }
         
     }
@@ -110,33 +102,29 @@ class App extends Component {
     }
 
     removeTask = (event) => {
-            const changedTasksData = this.state.tasksData
+            const changedTasksData = [...this.state.tasksData];
             changedTasksData.splice(event.target.dataset.id, 1)
             this.setState({
                 tasksData: changedTasksData
-            })
-            localStorage.setItem('tasks', JSON.stringify(this.state.tasksData))
-            console.log(this.state.tasksData)
+            }, () => localStorage.setItem('tasks', JSON.stringify(this.state.tasksData)))
         }
 
 
     clearTasksList = () => {
         if (this.state.tasksData.length !== 0) {
-            const clearedTaskdList = this.state.tasksData
+            const clearedTaskdList = [...this.state.tasksData]
             clearedTaskdList.length = 0
             this.setState({
             tasksData: clearedTaskdList
-        })
-        localStorage.setItem('tasks', JSON.stringify(this.state.tasksData))
-        console.log(this.state.tasksData)
+        }, () => localStorage.setItem('tasks', JSON.stringify(this.state.tasksData)))
         }
         
     }
 
     togleEditInput = (event) =>{
-        let changedLocationEditInput  = event.clientY - 45
-        let changedEditInputIndex = +event.target.dataset.id
-        let changedEditInputText = this.state.tasksData[+event.target.dataset.id].value
+        let changedLocationEditInput  = event.clientY - 45;
+        let changedEditInputIndex = +event.target.dataset.id;
+        let changedEditInputText = this.state.tasksData[+event.target.dataset.id].value;
         this.setState({
             editInputText: changedEditInputText,
             visibleEditInput: !this.state.visibleEditInput,
@@ -147,14 +135,13 @@ class App extends Component {
 
     editTaskByPressEnter = (event) => {
         if (event.key === 'Enter' && event.target.value !== '') {
-          const changedTasksData = this.state.tasksData
-          changedTasksData[event.target.dataset.index].value = event.target.value
+          const changedTasksData = [...this.state.tasksData];
+          changedTasksData[event.target.dataset.index].value = event.target.value;
           changedTasksData[event.target.dataset.index].date = 'Измененно: ' + this.state.date
           this.setState({
               tasksData: changedTasksData,
               visibleEditInput: false,
-          })
-          localStorage.setItem('tasks', JSON.stringify(this.state.tasksData))
+          }, () => localStorage.setItem('tasks', JSON.stringify(this.state.tasksData)))
         }
     }
 
@@ -172,7 +159,7 @@ class App extends Component {
                     <DateComponent date = {this.state.date} />
                 </div>
                     <EditInput  onEditInputTextChange = {this.onEditInputTextChange} editTaskByPressEnter = {this.editTaskByPressEnter} focusEditText = {this.focusEditText} hideEditInput = {this.hideEditInput} style = {{top: `${this.state.locationEditInput}px`}} visibleEditInput = {this.state.visibleEditInput} value = {this.state.editInputText} editInputIndex = {this.state.editInputIndex} />
-                    <input   onBlur = {this.clearInputValue} onChange = {this.onInputTextChange} onKeyPress = {this.addTaskByPressEnter}  type="text" className="todo_list-input-text" />
+                    <input ref = { this.inputValue } onChange = {this.onInputTextChange} onKeyPress = {this.addTaskByPressEnter}  type="text" className="todo_list-input-text" />
                     <TaskList  togleEditInput = {this.togleEditInput} removeTask = {this.removeTask} tasks = {this.state.tasksData} date = {this.state.date} />
                 <div className="todo_list-button-container">
                     <button data-index = {this.state.editInputIndex} onClick = {this.addTaskByClickBtn} className="todo_list-button add-task">Добавить</button>
